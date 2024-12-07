@@ -2,7 +2,7 @@
 #include "function.h"
 
 
-int main()
+int main(void)
 {
 	FILE *input, *output;
 	int answer;
