@@ -2,7 +2,7 @@
 #include "function.h"
 
 
-int main()
+int main(void)
 {
 	FILE *input, *output;
 
@@ -31,8 +31,8 @@ int main()
 		return -1;
 	}
 
-
-	int answer = is_x(input, x); // 1 - yes; 0 - no; -1 - error
+	int answer;
+	answer = is_x(input, x); // 1 - yes; 0 - no; -1 - error
 	
 	if (answer == -1)
 	{

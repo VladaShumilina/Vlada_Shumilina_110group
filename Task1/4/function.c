@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "function.h"
 
 int is_x(FILE *input, double x)
 {
