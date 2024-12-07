@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "function.h"
 
 int whats_more(FILE *input)
 {

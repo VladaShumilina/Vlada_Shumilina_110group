@@ -5,7 +5,8 @@
 int main(void)
 {
 	FILE *input, *output;
-
+	int answer;
+	double x;
 	input = fopen("input.txt", "r");
 	if (!input)
 	{
@@ -21,7 +22,6 @@ int main(void)
 		return -1;
 	}
 	
-	double x;
 	printf("Print the number X:\n");
 	if (scanf("%lf", &x) != 1)
 	{
@@ -31,7 +31,6 @@ int main(void)
 		return -1;
 	}
 
-	int answer;
 	answer = is_x(input, x); // 1 - yes; 0 - no; -1 - error
 	
 	if (answer == -1)

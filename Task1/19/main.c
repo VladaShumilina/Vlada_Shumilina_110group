@@ -5,7 +5,7 @@
 int main()
 {
 	FILE *input, *output;
-
+	int answer;
 	input = fopen("input.txt", "r");
 	if (!input)
 	{
@@ -21,7 +21,7 @@ int main()
 		return -1;
 	}
 
-	int answer = whats_more(input); // -1 - not increasing, 1 - increasing, 0 - equally, -2 - error
+	answer = whats_more(input); // -1 - not increasing, 1 - increasing, 0 - equally, -2 - error
 	
 	if (answer == 1)
 	{

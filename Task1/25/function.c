@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "function.h"
 
 int max_distance(FILE *input)
 {
@@ -7,13 +7,13 @@ int max_distance(FILE *input)
 	int prev_index = 0; // index of the previous max 
 	int next, cur, prev; //next number; current number; previous number
 	int max_distance = -1;
+	int p;
 
 	if (fscanf(input, "%d", &prev) == EOF) return max_distance;
 	if (fscanf(input, "%d", &cur) == EOF) return max_distance;
 
 	cur_index = 2;
 	
-	int p;
 	while ((p = fscanf(input, "%d", &next)) == 1)
 	{		
 		if ((cur > prev) && (cur > next))
