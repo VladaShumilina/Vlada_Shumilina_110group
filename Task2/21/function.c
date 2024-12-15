@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "function.h"
 
-void shuffle(int numbers[],  int length)
+void shuffle(int *numbers,  int length)
 {
 	int i, j, c;
 

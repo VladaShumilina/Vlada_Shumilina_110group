@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "function.h"
 
-int is_happy(int numbers[],  int length)
+int is_happy(int *numbers,  int length)
 {
 	int i, j, is_happy, cur_sum, sum;
 	

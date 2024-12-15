@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "function.h"
 
-int delete_negative(int numbers[],  int length)
+int delete_negative(int *numbers,  int length)
 {
 	int i, j;
 	int step;

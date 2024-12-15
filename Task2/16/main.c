@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "function.h"
 
 
@@ -6,7 +7,7 @@ int main(void)
 {
 	FILE *input, *output;
 	int length, answer, i;
-	int numbers[100];
+	int *numbers;
 	int p;
 	
 	input = fopen("input.txt", "r");
@@ -31,6 +32,24 @@ int main(void)
 		fclose(output);	
 		return -1;
 	}
+
+	if (length <= 0)
+	{
+		printf("Invalid data\n");
+		fclose(input);
+		fclose(output);
+		return -1;
+	}
+
+	numbers = malloc(length * sizeof(int));
+
+	if (!numbers)
+	{
+		printf("Memory error\n");
+		fclose(input);
+		fclose(output);
+		return -1;
+	}
 	
 	p = 1;	
 	for (i = 0; i < length; ++i)
@@ -46,6 +65,7 @@ int main(void)
 		printf("Invalid data\n");
 		fclose(input);
 		fclose(output);
+		free(numbers);
 		return -1;
 	}
 
@@ -54,6 +74,7 @@ int main(void)
 		printf("Invalid length\n");
 		fclose(input);
 		fclose(output);
+		free(numbers);
 		return -1;
 	}
 
@@ -67,7 +88,8 @@ int main(void)
 	{
 		fprintf(output, "Not happy\n");
 	}
-
+	
+	free(numbers);
 	fclose(input);
 	fclose(output);
 	return 0;

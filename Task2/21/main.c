@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include "function.h"
+#include <stdlib.h>
 
 
 int main(void)
 {
 	FILE *input, *output;
 	int length, i;
-	int numbers[100];
+	int *numbers;
 	int p;
 	
 	input = fopen("input.txt", "r");
@@ -31,6 +32,24 @@ int main(void)
 		fclose(output);	
 		return -1;
 	}
+
+
+	if (length <= 0)
+	{
+		printf("Memory error\n");
+		fclose(input);
+		fclose(output);
+		return -1;
+	}
+
+	numbers = malloc(length * sizeof(int));
+	if (!numbers)
+	{
+		printf("Memory error\n");
+		fclose(input);
+		fclose(output);
+		return -1;
+	}
 	
 	p = 1;	
 	for (i = 0; i < length; ++i)
@@ -44,6 +63,7 @@ int main(void)
 	if (p == 0)
 	{
 		printf("Invalid data\n");
+		free(numbers);
 		fclose(input);
 		fclose(output);
 		return -1;
@@ -52,6 +72,7 @@ int main(void)
 	if (p == EOF)
 	{
 		printf("Invalid length\n");
+		free(numbers);
 		fclose(input);
 		fclose(output);
 		return -1;
@@ -65,6 +86,7 @@ int main(void)
 	}
 	fprintf(output, "\n");
 
+	free(numbers);
 	fclose(input);
 	fclose(output);
 	return 0;
